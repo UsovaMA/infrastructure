@@ -2,5 +2,7 @@
 #define INCLUDE_ADD_H_
 
 int add(int x, int y);
+int sub(int x, int y);
+int mult(int x, int y);
 
 #endif  // INCLUDE_ADD_H_
