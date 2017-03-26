@@ -5,7 +5,7 @@ TEST(MadeMassive, throw_when_work_with_empty_massive) {
   const int N = 0;
   int* a = nullptr;
 
-  EXPECT_ANY_THROW(int* res = made_massive(a, 0));
+  EXPECT_ANY_THROW(made_massive(a, N));
 }
 
 TEST(MadeMassive, can_work_with_massive_of_one_element) {
