@@ -14,6 +14,7 @@ struct CNode {
 
 CNode* create_tree_with_recursion(int *A, int left_end, int right_end);
 CNode* create_tree(int *A, int size);
+CNode* CreateTree(int* A, int size);
 CNode** find(CNode**root, int v);
 void PrintTree(CNode* root);
 void print_tree(CNode* root, int level);

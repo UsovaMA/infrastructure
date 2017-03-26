@@ -1,6 +1,7 @@
 #include <iostream>
-#include "create_tree.h"
 #include <queue>
+#include <tuple>
+#include "create_tree.h"
 
 CNode* create_tree_with_recursion(int *A, int left_end, int right_end) {
   CNode* tree;
@@ -40,6 +41,29 @@ CNode* create_tree(int *A, int size) {
     q.push(middle - 1);
     q.push(middle + 1);
     q.push(right_end);
+  }
+  return tree;
+}
+
+CNode* CreateTree(int* A, int size) {
+  std::queue<std::tuple<CNode**, int, int>> q;
+  CNode* tree;
+  int middle;
+  if (A == nullptr)
+    return nullptr;
+  q.push(std::make_tuple(&tree, 0, size));
+
+  while (!q.empty()) {
+    auto node = q.front();
+    q.pop();
+    middle = (std::get<1>(node) + std::get<2>(node)) / 2;
+    if (std::get<1>(node) < std::get<2>(node)) {
+      *(std::get<0>(node)) = new CNode(A[middle]);
+      q.push(std::make_tuple
+      (&(*(std::get<0>(node)))->left, (std::get<1>(node)), middle));
+      q.push(std::make_tuple
+      (&(*(std::get<0>(node)))->right, middle+1, std::get<2>(node)));
+    }
   }
   return tree;
 }

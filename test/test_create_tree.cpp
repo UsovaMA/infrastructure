@@ -127,3 +127,66 @@ TEST(Create_Tree_With_Recursion, create_tree_can_work_with_function) {
   EXPECT_EQ(*(find(&tree, 1)), tree->left);
   EXPECT_EQ(*(find(&tree, 3)), tree->right);
 }
+
+TEST(Create_Tree_2, can_create_empty_tree) {
+  EXPECT_NO_THROW(CreateTree(NULL, 0));
+}
+
+TEST(Create_Tree_2, can_create_tree_ex_1_1) {
+  const int size = 3;
+  int A[size] = { 1, 2, 3 };
+
+  EXPECT_NO_THROW(CreateTree(A, size));
+}
+
+TEST(Create_Tree_2, can_create_tree_ex_1_2) {
+  const int size = 3;
+  int A[size] = { 1, 2, 3 };
+
+  CNode* tree = CreateTree(A, size);
+
+  CNode* true_tree = new CNode(2);
+  true_tree->left = new CNode(1);
+  true_tree->right = new CNode(3);
+
+  ASSERT_EQ(tree->val, true_tree->val);
+  ASSERT_EQ(tree->left->val, true_tree->left->val);
+  ASSERT_EQ(tree->right->val, true_tree->right->val);
+}
+
+TEST(Create_Tree_2, can_create_tree_ex_2_1) {
+  const int size = 5;
+  int A[size] = { 1, 2, 3, 4, 5 };
+
+  EXPECT_NO_THROW(CreateTree(A, size));
+}
+
+TEST(Create_Tree_2, can_create_tree_ex_2_2) {
+  const int size = 5;
+  int A[size] = { 1, 2, 3, 4, 6 };
+
+  CNode* tree = CreateTree(A, size);
+
+  CNode* true_tree = new CNode(3);
+  true_tree->left = new CNode(2);
+  true_tree->right = new CNode(6);
+  true_tree->left->left = new CNode(1);
+  true_tree->right->left = new CNode(4);
+
+  ASSERT_EQ(tree->val, true_tree->val);
+  ASSERT_EQ(tree->left->val, true_tree->left->val);
+  ASSERT_EQ(tree->right->val, true_tree->right->val);
+  ASSERT_EQ(tree->left->left->val, true_tree->left->left->val);
+  ASSERT_EQ(tree->right->left->val, true_tree->right->left->val);
+}
+
+TEST(Create_Tree_2, create_tree_can_work_with_function) {
+  const int size = 3;
+  int A[size] = { 1, 2, 3 };
+
+  CNode* tree = CreateTree(A, size);
+
+  EXPECT_EQ(*(find(&tree, 2)), tree);
+  EXPECT_EQ(*(find(&tree, 1)), tree->left);
+  EXPECT_EQ(*(find(&tree, 3)), tree->right);
+}

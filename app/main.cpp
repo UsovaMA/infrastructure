@@ -1,5 +1,5 @@
-#include "create_tree.h"
 #include <iostream>
+#include "create_tree.h"
 
 int main() {
   const int size = 6;
@@ -28,5 +28,4 @@ int main() {
     << std::endl << std::endl;
   print_tree(tree_1, 4);
   PrintTree(tree_1);
-  return 0;
 }
