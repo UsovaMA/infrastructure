@@ -1,6 +1,10 @@
-#include "add.h"
+#include "Dijkstra.h"
 #include <iostream>
 
 int main() {
-  std::cout << "2 + 2 = " << add(2, 2) << std::endl;
+  int start = 2;
+  /*нужно понять, как вводить список
+  смежных рёбер с реализованной структурой g[N] = ???*/
+  //Dijkstra(start - 1);
 }
+
