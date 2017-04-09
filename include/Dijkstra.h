@@ -1,17 +1,20 @@
-#ifndef INCLUDE_ADD_H_
-#define INCLUDE_ADD_H_
+#ifndef INCLUDE_DIJKSTRA_H_
+#define INCLUDE_DIJKSTRA_H_
+
 #include <vector>
+#include <iostream>
+#include <set>
+#include <stack>
 
-const int N = 100000;
-const int INF = 1 << 30;
+const int INF = 1000000000;
 
-// список смежных рёбер для каждой вершины
-struct mytype {
+// list of adjacent edges for each vertex
+struct edge {
   int vFrom, vTo;
   int weight;
 };
-std::vector<mytype> g[N];
 
-int* Dijkstra(int start);
+edge make_edge(int vFrom_, int vTo_, int weight_);
+int Dijkstra(std::vector< std::vector <edge> > g, int start, int end);
 
-#endif  // INCLUDE_ADD_H_
+#endif  // INCLUDE_DIJKSTRA_H_
