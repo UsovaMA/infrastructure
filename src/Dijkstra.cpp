@@ -16,16 +16,17 @@ int Dijkstra(std::vector< std::vector<edge> > g, int start, int end) {
   std::vector<int> dist(g.size());
   std::set<std::pair<int, int>> s;
   int flag;
+  int size = g.size();
 
-  if ((g.size() == 0) || ((end == start) && (g[0][0].vFrom != end)))
+  if ((size == 0) || ((end == start) && (g[0][0].vFrom != end)))
     throw std::logic_error("Input Error\n");
 
   if (end == start)
     return 0;
 
-  for (int i = 0; i < g.size(); i++)
+  for (int i = 0; i < size; i++)
     parent[i] = -1;
-  for (int i = 0; i < g.size(); i++)
+  for (int i = 0; i < size; i++)
     dist[i] = INF;
   dist[start] = 0;
   s.insert(std::make_pair(dist[start], start));
@@ -47,7 +48,9 @@ int Dijkstra(std::vector< std::vector<edge> > g, int start, int end) {
       return s.begin()->first;
     }
     s.erase(s.begin());
-    for (int j = 0; j < g[v].size(); j++) {
+
+    int v_size = g[v].size();
+    for (int j = 0; j < v_size; j++) {
       int u = g[v][j].vTo;
       if (u < 0) break;
       int w = g[v][j].weight;
