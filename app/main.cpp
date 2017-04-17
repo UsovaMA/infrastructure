@@ -1,9 +1,9 @@
 #include "percolation.h"
 #include <iostream>
-#include <iomanip>  
+#include <iomanip>
 
 int main() {
-  int k = 100;
+  int k = 30000;
   int n = 3;
   int size = n * n + 2 * n;
   Disjoint_Sets A(size);

@@ -2,12 +2,12 @@
 #define INCLUDE_PERCOLATION_H_
 
 class Disjoint_Sets {
-public:
+ public:
   int size;
   int *parent;
   int *rank;
 
-  Disjoint_Sets(int _size);
+  explicit Disjoint_Sets(int _size);
   ~Disjoint_Sets();
   void make_set(int x);
   void union_sets(int x, int y);

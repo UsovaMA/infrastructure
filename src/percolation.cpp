@@ -52,7 +52,7 @@ void Disjoint_Sets::union_sets(int x, int y) {
     int _x, _y;
     _x = find_set(x);
     _y = find_set(y);
-    if (_x != _y)
+    if (_x != _y) {
       if (rank[_x] < rank[_y]) {
         parent[_x] = _y;
       } else {
@@ -60,6 +60,7 @@ void Disjoint_Sets::union_sets(int x, int y) {
         if (rank[_x] == rank[_y])
           ++rank[_x];
       }
+    }
   }
 }
 
