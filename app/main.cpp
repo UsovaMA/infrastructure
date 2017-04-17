@@ -3,7 +3,7 @@
 #include <iomanip>
 
 int main() {
-  int k = 30000;
+  int k = 100;
   int n = 3;
   int size = n * n + 2 * n;
   Disjoint_Sets A(size);
@@ -23,7 +23,7 @@ int main() {
     }
     count = 0;
     // эксперимент
-    percolation(&A, n, count);
+    count = percolation(&A, n);
     result += count * 1.0;
   }
   // вычисляем математическое ожидание

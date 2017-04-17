@@ -73,7 +73,8 @@ void Disjoint_Sets::clear() {
 }
 
 /* Просачивание */
-void percolation(Disjoint_Sets *set, int n, int &count) {
+int percolation(Disjoint_Sets *set, int n) {
+  int count = 0;
   int x, y;
   srand(time(NULL));
   int coordinate;
@@ -103,4 +104,5 @@ void percolation(Disjoint_Sets *set, int n, int &count) {
     // (начало и конец должны принадлежать одному множеству)
     flag = ((*set).find_set(0) == (*set).find_set((*set).size - 1));
   }
+  return count;
 }

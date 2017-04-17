@@ -15,6 +15,6 @@ class Disjoint_Sets {
   void clear();
 };
 
-void percolation(Disjoint_Sets *a, int n, int &count);
+int percolation(Disjoint_Sets *a, int n);
 
 #endif  // INCLUDE_PERCOLATION_H_
