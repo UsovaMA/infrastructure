@@ -80,7 +80,7 @@ TEST(ISLANDS, the_islands_are_drowning_correctly_BFS) {
       EXPECT_EQ(exp[i][j], res[i][j]);
 }
 
-TEST(ISLANDS, ñan_work_in_the_absence_of_islands_DS) {
+TEST(ISLANDS, can_work_in_the_absence_of_islands_DS) {
   std::vector<std::vector<int>> m(8, std::vector<int>(8, 0));
   m[0][5] = 1;
   m[1][5] = 1;
@@ -103,7 +103,7 @@ TEST(ISLANDS, ñan_work_in_the_absence_of_islands_DS) {
       EXPECT_EQ(m[i][j], res[i][j]);
 }
 
-TEST(ISLANDS, ñan_work_in_the_absence_of_islands_BFS) {
+TEST(ISLANDS, can_work_in_the_absence_of_islands_BFS) {
   std::vector<std::vector<int>> m(8, std::vector<int>(8, 0));
   m[0][5] = 1;
   m[1][5] = 1;
