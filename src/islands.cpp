@@ -93,7 +93,6 @@ std::vector<std::vector<int>> PercolationForDS
 /* Обход в ширину (breadth-first search) */
 void BFS(std::vector<std::vector<int>> matrix,
   std::vector<std::vector<int>> *field, index Y) {
-
   int matrix_size = matrix.size();
   std::queue<index> q;
   q.push(Y);
