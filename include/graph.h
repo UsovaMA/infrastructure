@@ -24,4 +24,8 @@ Graph Create_graph(char *q);
 Graph create_graph(char *q);
 void Print(Graph *g);
 
+void graph_and_ostov_to_gv(Graph* graph, Graph* ostov, char* name);
+void graph_to_gv(Graph* graph, char* name);
+void ostov_to_gv(Graph* ostov, char* name);
+
 #endif  // INCLUDE_GRAPH_H_

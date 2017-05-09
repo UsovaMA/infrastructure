@@ -148,3 +148,61 @@ Graph create_graph(char *q) {
   make_graph(N, edge_N, e, &g);
   return g;
 }
+
+/* Визуализация полученных графов и остовов */
+void graph_and_ostov_to_gv(Graph* graph, Graph* ostov, char* name) {
+  FILE* fp = fopen(name, "w");
+
+  fprintf(fp, "graph ostov {\n");
+  fprintf(fp, "\trankdir=LR;\n");
+  fprintf(fp, "\tnode[shape=doublecircle];\n");
+  fprintf(fp, "\tedge[color=black];\n");
+
+  for (int i = 0; i < graph->edge_N; i++) {
+    fprintf(fp, "\tedge[label=%d];\n", graph->edges[i].weight);
+    fprintf(fp, "\t%c -- %c;\n", graph->edges[i].x, graph->edges[i].y);
+  }
+  fprintf(fp, "\tedge[color=green];\n");
+
+  for (int i = 0; i < ostov->edge_N; i++) {
+    fprintf(fp, "\tedge[label=%d];\n", ostov->edges[i].weight);
+    fprintf(fp, "\t%c -- %c;\n", ostov->edges[i].x, ostov->edges[i].y);
+  }
+
+  fprintf(fp, "}");
+  fclose(fp);
+}
+
+void graph_to_gv(Graph* graph, char* name) {
+  FILE* fp = fopen(name, "w");
+
+  fprintf(fp, "graph ostov {\n");
+  fprintf(fp, "\trankdir=LR;\n");
+  fprintf(fp, "\tnode[shape=circle];\n");
+  fprintf(fp, "\tedge[color=black];\n");
+
+  for (int i = 0; i < graph->edge_N; i++) {
+    fprintf(fp, "\tedge[label=%d];\n", graph->edges[i].weight);
+    fprintf(fp, "\t%c -- %c;\n", graph->edges[i].x, graph->edges[i].y);
+  }
+
+  fprintf(fp, "}");
+  fclose(fp);
+}
+
+void ostov_to_gv(Graph* ostov, char* name) {
+  FILE* fp = fopen(name, "w");
+
+  fprintf(fp, "graph ostov {\n");
+  fprintf(fp, "\trankdir=LR;\n");
+  fprintf(fp, "\tnode[shape=doublecircle];\n");
+  fprintf(fp, "\tedge[color=green];\n");
+
+  for (int i = 0; i < ostov->edge_N; i++) {
+    fprintf(fp, "\tedge[label=%d];\n", ostov->edges[i].weight);
+    fprintf(fp, "\t%c -- %c;\n", ostov->edges[i].x, ostov->edges[i].y);
+  }
+
+  fprintf(fp, "}");
+  fclose(fp);
+}
