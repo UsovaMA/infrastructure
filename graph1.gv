@@ -1,0 +1,21 @@
+graph ostov {
+	rankdir=LR;
+	node[shape=circle];
+	edge[color=black];
+	edge[label=8];
+	B -- D;
+	edge[label=8];
+	D -- E;
+	edge[label=7];
+	A -- E;
+	edge[label=5];
+	A -- B;
+	edge[label=5];
+	C -- D;
+	edge[label=4];
+	C -- E;
+	edge[label=2];
+	A -- C;
+	edge[label=1];
+	B -- E;
+}
