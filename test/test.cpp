@@ -3,7 +3,6 @@
 #include "building.h"
 
 TEST(built_groups, example_1) {
-  
   std::vector < std::pair < int, int > > enemies;
   enemies.push_back(std::make_pair(0, 1));
   enemies.push_back(std::make_pair(1, 2));
@@ -15,7 +14,7 @@ TEST(built_groups, example_1) {
   expect.push_back(1);
   expect.push_back(2);
 
-  EXPECT_EQ(result, expect); 
+  EXPECT_EQ(result, expect);
 }
 
 TEST(built_groups, example_2) {

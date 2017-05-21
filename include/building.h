@@ -1,5 +1,5 @@
-#ifndef INCLUDE_PERCOLATION_H_
-#define INCLUDE_PERCOLATION_H_
+#ifndef INCLUDE_BUILDING_H_
+#define INCLUDE_BUILDING_H_
 #include <vector>
 #include <stdexcept>
 
@@ -18,4 +18,4 @@ class Disjoint_Sets {
 
 std::vector < int > built_groups(std::vector <std::pair <int, int> > enemies, int n);
 
-#endif  // INCLUDE_PERCOLATION_H_
+#endif  // INCLUDE_BUILDING_H_

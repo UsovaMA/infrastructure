@@ -62,7 +62,7 @@ void Disjoint_Sets::union_sets(int x, int y) {
 
 /* Построение групп с учётом врагов */
 std::vector < int > built_groups(std::vector <std::pair <int, int> > enemies, int n) {
-  int size = enemies.size(); 
+  int size = enemies.size();
   Disjoint_Sets groups(n);
   int x, y;
   bool they_are_friends;
