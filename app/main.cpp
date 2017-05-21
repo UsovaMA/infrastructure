@@ -12,7 +12,8 @@ int main() {
   enemies.push_back(std::make_pair(0, 2));
   enemies.push_back(std::make_pair(3, 4));
   enemies.push_back(std::make_pair(4, 2));
-  for (int i = 0; i < enemies.size(); i++) {
+  int size = enemies.size();
+  for (int i = 0; i < size; i++) {
     std::cout << enemies[i].first + 1 << " and " << enemies[i].second + 1;
     std::cout << ";" << std::endl;
   }
@@ -20,7 +21,8 @@ int main() {
   std::cout << std::endl << "Result: " << "(";
   std::vector < int > result = built_groups(enemies, 5);
   int i;
-  for (i = 0; i < result.size() - 1; i++) {
+  int res_size = result.size();
+  for (i = 0; i < res_size - 1; i++) {
     std::cout << result[i] + 1 << ", ";
   }
   std::cout << result[i] + 1 << ")" << std::endl;
