@@ -156,7 +156,7 @@ std::vector < std::vector < std::pair<int, int> > > make_graph(char filename[]) 
 /* Чтение из файла для реализованного графа*/
 Graph create_graph(char *q) {
   FILE *F;
-  int N = 0, edge_N = 0;
+  int N = 0;
   F = fopen(q, "r");
   if (F == NULL) {
     throw std::logic_error("Input error. Can't open this file.\n");
