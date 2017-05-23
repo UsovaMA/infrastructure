@@ -111,14 +111,15 @@ int TreeDijkstra(std::vector < std::vector < std::pair<int, int> > > g, int star
 
   // вывод (можно было реализовать воврат полученного d)
   std::cout << std::endl;
-  for (int i = 0; i < dist.size(); i++) {
+  int size = dist.size();
+  for (int i = 0; i < size; i++) {
     if (i == start) {
       std::cout << "Start position: " << start << std::endl;
       continue;
     }
     std::cout << start << " -> " << i << "   " << dist[i] << std::endl;
   }
-  int min = dist[dist.size() - 1];
+  int min = dist[size - 1];
   return min;
 }
 
