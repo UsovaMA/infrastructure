@@ -49,5 +49,6 @@ class Graph {
 };
 
 std::vector < std::vector < std::pair<int, int> > > make_graph(char filename[]);
+Graph create_graph(char *q);
 
 #endif  // INCLUDE_GRAPH_H_

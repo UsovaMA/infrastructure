@@ -4,9 +4,9 @@
 
 /*    Алгортм Дейкстры    */
 /*        на д-куче       */
-/* с реализованным графом */
 
 int HeapDijkstra(Graph **_graph, int start) {
+  std::cout << "DIJKSTRA ALGORITHM ON HEAP" << std::endl;
   // проверка корректности входных данных
   int verices = (*_graph)->get_ver();
   if (!verices)
@@ -55,17 +55,19 @@ int HeapDijkstra(Graph **_graph, int start) {
 
   // вывод и удаление (можно было реализовать воврат полученного dist)
   int min;
-  for (int i = 0; i < verices; i++)
-    std::cout << p[i];
   std::cout << std::endl;
+  std::cout << "Process of search shortest way: " << std::endl;
+  for (int i = 1; i < verices; i++) {
+      std::cout << " -> " << p[i];
+  }
+  std::cout << " -> " << verices - 1;
   std::cout << std::endl;
-  std::cout << " WAY: " << std::endl;
   for (int i = 0; i < verices; i++) {
     if (i == start) {
       std::cout << "Start position: " << start << std::endl;
       continue;
     }
-    std::cout << p[i] << " -> " << i << "   " << dist[i]->priority << std::endl;
+    std::cout << start << " -> " << i << "   " << dist[i]->priority << std::endl;
     min = dist[i]->priority;
     delete dist[i];
   }
@@ -76,19 +78,18 @@ int HeapDijkstra(Graph **_graph, int start) {
 
 /*           Алгортм Дейкстры           */
 /*        на красно-чёрных деревьях     */
-/*   со встроенными структурами данных  */
-/*           для описания графа         */
-/*     и реализацией ввода из файла     */
 
-std::vector<int> TreeDijkstra(std::vector < std::vector < std::pair<int, int> > > g, int start) {
+int TreeDijkstra(std::vector < std::vector < std::pair<int, int> > > g, int start) {
+  std::cout << std::endl;
+  std::cout << "DIJKSTRA ALGORITHM ON RB TREE" << std::endl;
   // проверка корректности входных данных
-  if (g.empty() || (start < 1) || (start > static_cast<int>(g.size())))
+  if (g.empty() || (start < 0) || (start > static_cast<int>(g.size())))
     throw std::logic_error("Input error: graph is empty or wrong start virtex.\n");
 
   // подготовка данных для работы алгоритма
-  std::vector<int> d(g.size(), INF);
+  std::vector<int> dist(g.size(), INF);
   int v;
-  d[start - 1] = 0;
+  dist[start] = 0;
   PriorityQueueRBtree < std::pair<int, int> > pq;
   pq.add(std::pair<int, int>(0, start));
 
@@ -96,16 +97,28 @@ std::vector<int> TreeDijkstra(std::vector < std::vector < std::pair<int, int> > 
   while (!pq.isEmpty()) {
     std::pair<int, int> current = pq.min()->value;
     pq.pop(current);
-    v = current.second - 1;
+    v = current.second;
     for (int i = 0; i < static_cast<int>(g[v].size()); ++i) {
-      if (d[v] + g[v][i].second < d[g[v][i].first - 1]) {
-        if (d[g[v][i].first - 1] != INF)
-          pq.pop(std::pair<int, int>(d[g[v][i].first - 1],
+      if (dist[v] + g[v][i].second < dist[g[v][i].first]) {
+        if (dist[g[v][i].first] != INF)
+          pq.pop(std::pair<int, int>(dist[g[v][i].first],
             g[v][i].first));
-        d[g[v][i].first - 1] = d[v] + g[v][i].second;
-        pq.add(std::pair<int, int>(d[g[v][i].first - 1], g[v][i].first));
+        dist[g[v][i].first] = dist[v] + g[v][i].second;
+        pq.add(std::pair<int, int>(dist[g[v][i].first], g[v][i].first));
       }
     }
   }
-  return d;
+
+  // вывод (можно было реализовать воврат полученного d)
+  std::cout << std::endl;
+  for (int i = 0; i < dist.size(); i++) {
+    if (i == start) {
+      std::cout << "Start position: " << start << std::endl;
+      continue;
+    }
+    std::cout << start << " -> " << i << "   " << dist[i] << std::endl;
+  }
+  int min = dist[dist.size() - 1];
+  return min;
 }
+

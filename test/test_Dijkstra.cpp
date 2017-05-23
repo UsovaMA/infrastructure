@@ -71,15 +71,8 @@ TEST(DIJKSTRA, experiment_4) {
   EXPECT_EQ(7, HeapDijkstra(&graph, 0));
 }
 
-/*TEST(DIJKSTRA, throws_when_parametrs_are_uncorrect) {
-  std::vector < std::vector < std::pair<int, int> > > graph1;
-  EXPECT_ANY_THROW(std::vector <int> res = TreeDijkstra(graph1, 1));
-  std::vector < std::vector < std::pair<int, int> > > graph2(5);
-  EXPECT_ANY_THROW(std::vector <int> res = TreeDijkstra(graph2, 6));
-}*/
-
 TEST(DIJKSTRA, work_right_with_one_virtex) {
   std::vector < std::vector < std::pair<int, int> > > graph(1);
-  std::vector <int> res = TreeDijkstra(graph, 1);
-  EXPECT_EQ(res[0], 0);
+  int res = TreeDijkstra(graph, 0);
+  EXPECT_EQ(res, 0);
 }

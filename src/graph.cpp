@@ -3,6 +3,7 @@
 #include <fstream>
 #include <vector>
 #include <utility>
+#include <stdexcept>
 
 /* Конструкторы */
 Graph::Graph(int _ver) {
@@ -149,5 +150,30 @@ std::vector < std::vector < std::pair<int, int> > > make_graph(char filename[]) 
       file >> g[i][j].first >> g[i][j].second;
     }
   }
+  return g;
+}
+
+/* Чтение из файла для реализованного графа*/
+Graph create_graph(char *q) {
+  FILE *F;
+  int N = 0, edge_N = 0;
+  F = fopen(q, "r");
+  if (F == NULL) {
+    throw std::logic_error("Input error. Can't open this file.\n");
+  }
+  // считывание количества вершин графа
+  fscanf(F, "%d", &N);
+  Graph g(N);  // граф
+
+  int tmp, num, w;
+  for (int i = 0; i < N; i++) {
+    fscanf(F, "%d", &num);
+    for (int j = 0; j < num; j++) {
+      fscanf(F, "%d", &tmp);
+      fscanf(F, "%d", &w);
+      g.insert_edge(i, tmp, w);
+    }
+  }
+  fclose(F);
   return g;
 }

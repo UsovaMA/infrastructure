@@ -18,6 +18,6 @@ class Dijkstra_Data: public Data {
 };
 
 int HeapDijkstra(Graph ** _graph, int start);
-std::vector<int> TreeDijkstra(std::vector < std::vector < std::pair<int, int> > > g, int start);
+int TreeDijkstra(std::vector < std::vector < std::pair<int, int> > > g, int start);
 
 #endif  // INCLUDE_DIJKSTRA_H_
