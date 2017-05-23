@@ -19,7 +19,7 @@ int main() {
 
   int min_1 = HeapDijkstra(&graph, 0);
   std::cout << " Min way from start position to end - " << min_1 << std::endl;
-  
+
   std::vector < std::vector < std::pair<int, int> > > g(8);
   g[0] = std::vector< std::pair<int, int>>(1);
   g[0][0].first = 1;
